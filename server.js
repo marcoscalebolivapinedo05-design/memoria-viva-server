@@ -5,8 +5,8 @@ const app = express();
 app.use(cors());
 app.use(express.json({ limit: '15mb' }));
 
-// PON AQUÍ TU TOKEN DE REPLICATE (reemplaza el texto dentro de las comillas)
-const REPLICATE_API_TOKEN = "r8_YCA8JQN5YECpRgjD2OCfWlIbgYnxzed2Id8sz";
+// 1. PEGA AQUÍ TU TOKEN DE REPLICATE (entre las comillas)
+const REPLICATE_API_TOKEN = "r8_AQUÍ_VA_TU_TOKEN_DE_REPLICATE";
 
 app.post('/restaurar', async (req, res) => {
   try {
@@ -68,6 +68,7 @@ app.post('/restaurar', async (req, res) => {
   }
 });
 
-app.listen(3000, () => {
-  console.log("✅ Servidor de Memoria Viva listo en http://localhost:3000");
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`✅ Servidor de Memoria Viva listo en el puerto ${PORT}`);
 });
